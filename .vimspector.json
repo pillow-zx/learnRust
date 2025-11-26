@@ -1,0 +1,14 @@
+{
+    "configurations": {
+        "Launch": {
+            "adapter": "CodeLLDB",
+            "configuration": {
+                "request": "launch",
+                "program": "${workspaceRoot}/target/debug/learn",
+                "args": [],
+                "cwd": "${workspaceRoot}",
+                "stopOnEntry": false
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ mod myvec;
 mod linkedlist;
 mod deque;
 mod stack;
+mod utils;
 
 #[allow(unused)]
 use linkedlist::LinkedList;
@@ -12,6 +13,8 @@ use myvec::MyVec;
 use deque::SimpleDeque;
 #[allow(unused)]
 use stack::Stack;
+
+use crate::utils::get_input;
 
 
 
@@ -27,4 +30,6 @@ fn main() {
         stack.push(i).unwrap();
     }
     println!("{}", stack);
+
+    println!("{}", get_input::<String>("Enter a string: "));
 }

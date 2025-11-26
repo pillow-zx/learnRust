@@ -126,3 +126,39 @@ impl<T> Drop for MyVec<T> {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::MyVec;
+
+    #[test]
+    fn push_and_len() {
+        let mut v: MyVec<i32> = MyVec::new();
+        v.push(1);
+        assert_eq!(v.len(), 1);
+        v.push(2);
+        assert_eq!(v.len(), 2);
+    }
+
+    #[test]
+    fn pop_works() {
+        let mut v: MyVec<i32> = MyVec::new();
+        v.push(10);
+        v.push(20);
+        assert_eq!(v.pop(), Some(20));
+        assert_eq!(v.pop(), Some(10));
+        assert_eq!(v.pop(), None);
+    }
+
+    #[test]
+    fn get_and_get_mut() {
+        let mut v: MyVec<i32> = MyVec::new();
+        v.push(5);
+        v.push(6);
+        assert_eq!(v.get(0), Some(&5));
+        assert_eq!(v.get(1), Some(&6));
+        assert_eq!(v.get(2), None);
+        if let Some(x) = v.get_mut(0) { *x = 7; }
+        assert_eq!(v.get(0), Some(&7));
+    }
+}
